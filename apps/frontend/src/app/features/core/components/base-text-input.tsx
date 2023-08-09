@@ -18,7 +18,7 @@ const BaseTextInput: React.ForwardRefRenderFunction<
   <input
     {...inputProps}
     id={id}
-    type='text'
+    type="text"
     data-testid={testId}
     disabled={disabled}
     className={classNameBuilder(

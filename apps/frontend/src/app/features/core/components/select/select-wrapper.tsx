@@ -25,13 +25,13 @@ export const SelectWrapper = <T,>(props: {
   return (
     <SelectContext.Provider value={context}>
       <Combobox
-        as='div'
+        as="div"
         className={props.className}
         value={props.value}
         onChange={props.onChange}
         disabled={props.disabled}
       >
-        <Column className='relative max-h-10 h-10 flex-1 items-start'>
+        <Column className="relative max-h-10 h-10 flex-1 items-start">
           {props.children}
         </Column>
       </Combobox>

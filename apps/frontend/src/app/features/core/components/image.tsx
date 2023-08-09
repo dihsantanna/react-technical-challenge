@@ -19,7 +19,7 @@ const Image = ({ className, src, width, height, alt }: ImageProps) => {
       alt={alt || ""}
       className={className}
       src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/${src}`}
-      layout='fixed'
+      layout="fixed"
       width={width}
       height={height}
     />

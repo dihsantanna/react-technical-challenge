@@ -1,5 +1,5 @@
-import { Combobox } from "@headlessui/react"
-import React from "react"
+import { Combobox } from "@headlessui/react";
+import React from "react";
 
 export interface SelectButtonProps
   extends React.HTMLAttributes<HTMLButtonElement> {}
@@ -12,9 +12,9 @@ export const SelectButton: React.FC<SelectButtonProps> = React.forwardRef<
     <Combobox.Button ref={ref} {...props}>
       {children}
     </Combobox.Button>
-  )
-})
+  );
+});
 
-SelectButton.displayName = "SelectButton"
+SelectButton.displayName = "SelectButton";
 
-export default SelectButton
+export default SelectButton;

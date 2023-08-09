@@ -38,7 +38,7 @@ const PressableIcon: React.FC<PressableIconProps> = ({
         )}
         onClick={disabled ? () => null : onClick}
       >
-        {isImageUrl ? <Image src={children} alt='' fill /> : children}
+        {isImageUrl ? <Image src={children} alt="" fill /> : children}
       </IconBody>
     </IconWrapper>
   );

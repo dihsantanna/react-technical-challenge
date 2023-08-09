@@ -53,11 +53,11 @@ const Button = ({
       )}
     >
       {pending ? (
-        <div className='flex flex-col absolute inset-0 items-center justify-center z-20'>
-          <Spinner className='text-current w-6 h-6' />
+        <div className="flex flex-col absolute inset-0 items-center justify-center z-20">
+          <Spinner className="text-current w-6 h-6" />
         </div>
       ) : (
-        <div className='flex flex-nowrap whitespace-nowrap gap-x-2 items-center justify-center text-h6m sm:text-h6 font-semibold'>
+        <div className="flex flex-nowrap whitespace-nowrap gap-x-2 items-center justify-center text-h6m sm:text-h6 font-semibold">
           {getAttachment(leftAttachment)}
           {children}
           {getAttachment(rightAttachment)}
@@ -96,22 +96,22 @@ const variantClassMap: Record<ButtonVariant, string> = {
 function Spinner({ className }: { className: string }) {
   return (
     <svg
-      viewBox='0 0 38 38'
-      xmlns='http://www.w3.org/2000/svg'
-      stroke='currentColor'
+      viewBox="0 0 38 38"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
       className={className}
     >
-      <g fill='none' fill-rule='evenodd'>
-        <g transform='translate(1 1)' strokeWidth='2'>
-          <circle stroke-opacity='.5' cx='18' cy='18' r='18' />
-          <path d='M36 18c0-9.94-8.06-18-18-18'>
+      <g fill="none" fill-rule="evenodd">
+        <g transform="translate(1 1)" strokeWidth="2">
+          <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+          <path d="M36 18c0-9.94-8.06-18-18-18">
             <animateTransform
-              attributeName='transform'
-              type='rotate'
-              from='0 18 18'
-              to='360 18 18'
-              dur='1s'
-              repeatCount='indefinite'
+              attributeName="transform"
+              type="rotate"
+              from="0 18 18"
+              to="360 18 18"
+              dur="1s"
+              repeatCount="indefinite"
             />
           </path>
         </g>

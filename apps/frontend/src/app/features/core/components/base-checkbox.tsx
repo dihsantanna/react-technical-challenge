@@ -37,7 +37,7 @@ const BaseCheckbox: React.ForwardRefRenderFunction<
             : "before:opacity-0 before:group-hover/checkbox:opacity-100 before:absolute before:-inset-3 before:rounded-full before:bg-transparent-15 before:active:bg-transparent-15 cursor-pointer"
         )}
         data-testid={dataTestId}
-        type='checkbox'
+        type="checkbox"
         checked={checked}
         disabled={disabled}
         ref={ref}

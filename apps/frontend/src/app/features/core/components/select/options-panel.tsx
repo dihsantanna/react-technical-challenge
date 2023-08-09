@@ -16,9 +16,9 @@ export const OptionPanel = (
   return (
     <Transition
       as={React.Fragment}
-      leave='transition ease-in duration-100'
-      leaveFrom='opacity-100'
-      leaveTo='opacity-0'
+      leave="transition ease-in duration-100"
+      leaveFrom="opacity-100"
+      leaveTo="opacity-0"
       beforeEnter={props.onOpen}
       afterLeave={props.onClose}
     >
@@ -31,7 +31,7 @@ export const OptionPanel = (
         {props.children?.length === 0 ? (
           <>
             {typeof props.nonIdealState === "string" ? (
-              <div className='relative cursor-default select-none py-2 px-4 text-gray-700'>
+              <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                 {props.nonIdealState}
               </div>
             ) : (

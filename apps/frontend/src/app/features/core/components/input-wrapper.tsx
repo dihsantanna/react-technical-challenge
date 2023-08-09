@@ -54,9 +54,9 @@ export const InputWrapper: React.FC<InputWrapperProps> = ({
           {labelObject.text}
         </Label>
       </Show>
-      <Column className='w-full'>
+      <Column className="w-full">
         {props.children}
-        <span className='h-0 mt-1 text-red-700 text-xs'>
+        <span className="h-0 mt-1 text-red-700 text-xs">
           {props.error ? "*" + props.error : null}
         </span>
       </Column>

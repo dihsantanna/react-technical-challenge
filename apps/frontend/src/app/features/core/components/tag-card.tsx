@@ -13,9 +13,9 @@ const TagCard: React.FC<TagCardProps> = ({ className, ...props }) => {
         "bg-transparent-7 rounded-full px-3 py-2",
         className
       )}
-      variant='h6'
-      color='neutral-lightest'
-      align='center'
+      variant="h6"
+      color="neutral-lightest"
+      align="center"
       {...props}
     />
   );

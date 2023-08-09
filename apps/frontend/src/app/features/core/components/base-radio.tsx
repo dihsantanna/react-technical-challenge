@@ -32,7 +32,7 @@ const BaseRadio: React.ForwardRefRenderFunction<
         className
       )}
       data-testid={dataTestId}
-      type='radio'
+      type="radio"
       checked={checked}
       disabled={disabled}
       ref={ref}

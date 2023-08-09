@@ -36,7 +36,7 @@ function IconButton({
       ].join(" ")}
     >
       {pending && (
-        <div className='flex flex-col absolute inset-0 items-center justify-center'>
+        <div className="flex flex-col absolute inset-0 items-center justify-center">
           {/* <Spinner
             className={["text-current", spinnerSizeMap[size]].join(" ")}
           /> */}

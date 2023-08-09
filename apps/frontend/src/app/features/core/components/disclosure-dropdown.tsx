@@ -16,7 +16,7 @@ const DisclosureDropdown: React.FC<DropdownProps> = ({
 }) => {
   return (
     <Disclosure
-      as='div'
+      as="div"
       className={classNameBuilder(
         "flex flex-col rounded-lg overflow-hidden",
         className
@@ -32,7 +32,7 @@ const DisclosureDropdown: React.FC<DropdownProps> = ({
               "transition ease-dissolve duration-250"
             )}
           >
-            <Text variant='h4' color='neutral-lightest'>
+            <Text variant="h4" color="neutral-lightest">
               {title}
             </Text>
             <ChevronDownIcon
@@ -43,15 +43,15 @@ const DisclosureDropdown: React.FC<DropdownProps> = ({
             />
           </Disclosure.Button>
           <Transition
-            enter='transition ease-dissolve duration-250 transform'
-            enterFrom='-translate-y-full'
-            enterTo='translate-x-0'
-            leave='transition ease-dissolve duration-250 transform'
-            leaveFrom='translate-x-0'
-            leaveTo='-translate-y-full'
+            enter="transition ease-dissolve duration-250 transform"
+            enterFrom="-translate-y-full"
+            enterTo="translate-x-0"
+            leave="transition ease-dissolve duration-250 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-y-full"
           >
-            <Disclosure.Panel className='p-4 -mt-2 pt-6 bg-neutral-darker/50 rounded-b-lg'>
-              <Text variant='p1' color='neutral-lightest'>
+            <Disclosure.Panel className="p-4 -mt-2 pt-6 bg-neutral-darker/50 rounded-b-lg">
+              <Text variant="p1" color="neutral-lightest">
                 {children}
               </Text>
             </Disclosure.Panel>

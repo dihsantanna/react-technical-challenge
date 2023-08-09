@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>80Lines React Challenge</title>
-        <link rel='shortcut icon' type='image/x-icon' href='/favicon.png' />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
       </Head>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
