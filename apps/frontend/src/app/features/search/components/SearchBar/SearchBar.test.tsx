@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect, it, describe, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import SearchBar from '.';
+import { SearchBar } from '.';
 
 describe('SearchBar', () => {
   beforeEach(() => {

@@ -4,7 +4,7 @@ import BaseTextInput from '@/components/base-text-input';
 import Image from 'next/image';
 import { useSearchBar } from '../../actions/useSearchBar';
 
-const SearchBar: React.FC = () => {
+export const SearchBar: React.FC = () => {
   const { handleChange } = useSearchBar();
   return (
     <Container
@@ -30,5 +30,3 @@ const SearchBar: React.FC = () => {
     </Container>
   );
 };
-
-export default SearchBar;
