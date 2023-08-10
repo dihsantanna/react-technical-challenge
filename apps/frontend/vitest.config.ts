@@ -16,7 +16,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/components': resolve(__dirname, 'src/app/features/core/components'),
+      '@/core-components': resolve(__dirname, 'src/app/features/core/components'),
       '@': resolve(__dirname, 'src/app'),
     },
   },

@@ -14,10 +14,15 @@ module.exports = {
       },
       colors: {
         'dark-violet': {
-          900: '#131523',
-          700: '#4A237D',
-          500: '#9D59FF',
-        }
+          900: '#170B20',
+          700: '#1C1228',
+          500: '#9D59FF'
+        },
+        'header-violet': {
+          'matte': '#3A3C5A',
+          700: '#4A237D'
+        },
+        base: '#EEEEEE'
       }
     },
   },

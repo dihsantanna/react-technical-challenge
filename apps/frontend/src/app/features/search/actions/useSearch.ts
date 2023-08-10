@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-export const useSearchBar = () => {
+export const useSearch = () => {
   const [search, setSearch] = useState("");
   const timeoutId = useRef<null | NodeJS.Timeout>(null);
 
