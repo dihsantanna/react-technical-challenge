@@ -47,6 +47,19 @@ describe('Footer', () => {
     expect(secondText).toBeInTheDocument();
   });
 
+  it('should render two "a" tags with texts "Central de atendimento" and "Políticas de privacidade"', () => {
+    const firstText = screen.queryByRole('link', {
+      name: /Central de atendimento/,
+    });
+
+    const secondText = screen.queryByRole('link', {
+      name: /Políticas de privacidade/,
+    });
+
+    expect(firstText).toBeInTheDocument();
+    expect(secondText).toBeInTheDocument();
+  });
+
   it(`should render payments images with alt texts: ${PAYMENTS.join(
     ', ',
   )}`, () => {
