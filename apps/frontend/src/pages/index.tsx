@@ -1,5 +1,6 @@
 import Container from '@/core-components/container';
 import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
       <Container as="section" className="max-w-[1440px]">
         Main
       </Container>
+      <Footer />
     </Container>
   );
 };
