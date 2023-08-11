@@ -2,7 +2,7 @@ import { classNameBuilder } from '@/helpers/class-name-builder';
 import React from 'react';
 
 export interface ContainerProps {
-  as?: 'div' | 'header' | 'footer' | 'section' | 'aside';
+  as?: 'div' | 'header' | 'footer' | 'section' | 'nav' | 'main';
   className?: string;
   children: React.ReactNode;
   testId?: string;
