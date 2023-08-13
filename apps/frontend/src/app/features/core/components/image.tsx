@@ -1,13 +1,13 @@
-import NextImage from "next/image";
+import NextImage, { ImageProps } from 'next/image';
 
-type ImageProps = {
-  className?: string;
-  src?: string;
-  width?: number;
-  height?: number;
-  alt?: string;
-};
-const Image = ({ className, src, width, height, alt }: ImageProps) => {
+const Image = ({
+  className,
+  src,
+  width,
+  height,
+  alt,
+  ...props
+}: ImageProps) => {
   if (!src) {
     return (
       <div className={`${className} bg-gray-200`} style={{ width, height }} />
@@ -16,9 +16,14 @@ const Image = ({ className, src, width, height, alt }: ImageProps) => {
 
   return (
     <NextImage
-      alt={alt || ""}
+      {...props}
+      alt={alt || ''}
       className={className}
-      src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/${src}`}
+      src={
+        src === 'testing'
+          ? '/80lines_logo.svg'
+          : `${process.env.NEXT_PUBLIC_IMAGES_URL}/${src}`
+      }
       layout="fixed"
       width={width}
       height={height}
