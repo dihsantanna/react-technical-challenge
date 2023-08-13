@@ -1,5 +1,6 @@
 import Container from '@/core-components/container';
 import { Footer, Header, NavBar } from '@/components';
+import { Sort } from '@/features/sort/components/sort';
 
 const Home: React.FC = () => {
   return (
@@ -10,12 +11,19 @@ const Home: React.FC = () => {
       <Header />
       <Container
         as="main"
-        className="max-w-[1440px] flex flex-col md:flex-row px-16"
+        className="max-w-[1440px] flex flex-col md:flex-row px-16 py-5 gap-2"
       >
         <aside className="flex w-full md:w-[620px]">
           <NavBar />
         </aside>
-        <Container as="section">Main</Container>
+        <Container as="section">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <h1 className="text-xl font-bold whitespace-nowrap">
+              Produtos mais buscados
+            </h1>
+            <Sort />
+          </div>
+        </Container>
       </Container>
       <Footer />
     </Container>
