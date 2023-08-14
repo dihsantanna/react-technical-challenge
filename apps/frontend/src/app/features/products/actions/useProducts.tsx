@@ -1,4 +1,5 @@
 import { parseFiltersUrl } from '@/features/filters/actions';
+import { parseSearchUrl } from '@/features/search/actions';
 import { parseSortUrl } from '@/features/sort/actions';
 import { SortBy } from '@/features/sort/actions/useSort';
 import { api } from '@/libs/axios/api';
@@ -19,6 +20,7 @@ const parseUrl = (
 ) => {
   url = parseFiltersUrl(url, filters);
   url = parseSortUrl(url, sort);
+  url = parseSearchUrl(url, search);
 
   return url;
 };
@@ -27,7 +29,7 @@ export const useProducts = () => {
   const refElementToLoadMore = useRef<HTMLDivElement | null>(null);
   const searchParams = useSearchParams();
 
-  const [filters, sortBy] = useMemo(() => {
+  const [filters, sortBy, query] = useMemo(() => {
     const params = new URLSearchParams(
       searchParams as unknown as URLSearchParams,
     );
@@ -36,6 +38,7 @@ export const useProducts = () => {
     const colors = JSON.parse(params.get('colors') ?? '[]') as string[];
     const prices = JSON.parse(params.get('prices') ?? '[]') as string[];
     const sort = (params.get('sort') ?? '') as SortBy;
+    const search = params.get('search') ?? '';
 
     return [
       {
@@ -44,6 +47,7 @@ export const useProducts = () => {
         prices,
       },
       sort,
+      search,
     ];
   }, [searchParams]);
 
@@ -52,13 +56,15 @@ export const useProducts = () => {
     isLoading,
     isFetchingNextPage,
     fetchNextPage,
-  } = useInfiniteQuery(['products', filters, sortBy], {
+    isFetching,
+  } = useInfiniteQuery(['products', filters, sortBy, query], {
     queryFn: async ({ pageParam = 1 }) => {
       const { data } = await api.get<ProductsType>(
         parseUrl(
           `/products?pagination[page]=${pageParam}&pagination[pageSize]=16`,
           filters,
           sortBy,
+          query,
         ),
       );
       return data;
@@ -107,7 +113,7 @@ export const useProducts = () => {
 
   return {
     products,
-    isLoading,
+    isLoading: isFetching || isLoading,
     isFetchingNextPage,
     refElementToLoadMore,
   };

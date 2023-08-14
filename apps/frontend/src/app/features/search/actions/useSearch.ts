@@ -1,6 +1,12 @@
-import { useRef, useState } from "react";
+'use client';
+
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export const useSearch = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
   const [search, setSearch] = useState("");
   const timeoutId = useRef<null | NodeJS.Timeout>(null);
 
@@ -16,6 +22,19 @@ export const useSearch = () => {
 
     timeoutId.current = debounce;
   }
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams as unknown as URLSearchParams);
+
+    if (search) {
+      params.set("search", search);
+    } else {
+      params.delete("search");
+    }
+
+      router.replace(`${pathname}${params.toString() ? `?${params.toString()}` : ''}`);
+
+  }, [search]);
 
   return {
     search,
