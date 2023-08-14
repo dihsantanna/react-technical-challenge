@@ -19,8 +19,8 @@ const Home: React.FC = () => {
           <NavBar />
           <FilterList />
         </aside>
-        <Container as="section">
-          <div className="flex flex-col gap-7 md:max-w-[calc(100%-280px)]">
+        <Container as="section" className="md:max-w-[calc(100%-280px)]">
+          <div className="flex flex-col gap-7">
             <div className="w-full flex items-center justify-between flex-wrap gap-2">
               <h1 className="text-xl font-bold whitespace-nowrap">
                 Produtos mais buscados

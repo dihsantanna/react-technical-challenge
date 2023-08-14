@@ -1,4 +1,6 @@
 import { parseFiltersUrl } from '@/features/filters/actions';
+import { parseSortUrl } from '@/features/sort/actions';
+import { SortBy } from '@/features/sort/actions/useSort';
 import { api } from '@/libs/axios/api';
 import { ProductsType, ProductWithAttributes } from '@/types/product-type';
 import { useInfiniteQuery } from '@tanstack/react-query';
@@ -12,10 +14,11 @@ const parseUrl = (
     colors: string[];
     prices: string[];
   },
-  sort = '',
+  sort?: SortBy,
   search = '',
 ) => {
   url = parseFiltersUrl(url, filters);
+  url = parseSortUrl(url, sort);
 
   return url;
 };
@@ -24,7 +27,7 @@ export const useProducts = () => {
   const refElementToLoadMore = useRef<HTMLDivElement | null>(null);
   const searchParams = useSearchParams();
 
-  const [filters] = useMemo(() => {
+  const [filters, sortBy] = useMemo(() => {
     const params = new URLSearchParams(
       searchParams as unknown as URLSearchParams,
     );
@@ -32,6 +35,7 @@ export const useProducts = () => {
     const categories = JSON.parse(params.get('categories') ?? '[]') as string[];
     const colors = JSON.parse(params.get('colors') ?? '[]') as string[];
     const prices = JSON.parse(params.get('prices') ?? '[]') as string[];
+    const sort = (params.get('sort') ?? '') as SortBy;
 
     return [
       {
@@ -39,6 +43,7 @@ export const useProducts = () => {
         colors,
         prices,
       },
+      sort,
     ];
   }, [searchParams]);
 
@@ -47,12 +52,13 @@ export const useProducts = () => {
     isLoading,
     isFetchingNextPage,
     fetchNextPage,
-  } = useInfiniteQuery(['products', filters], {
+  } = useInfiniteQuery(['products', filters, sortBy], {
     queryFn: async ({ pageParam = 1 }) => {
       const { data } = await api.get<ProductsType>(
         parseUrl(
           `/products?pagination[page]=${pageParam}&pagination[pageSize]=16`,
           filters,
+          sortBy,
         ),
       );
       return data;

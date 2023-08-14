@@ -6,7 +6,7 @@ export const ProductList = () => {
   const { products, refElementToLoadMore } = useProducts();
 
   return (
-    <div className="container grid grid-cols-[repeat(auto-fit,minmax(235.9px,1fr))] gap-5">
+    <div className="container grid grid-cols-[repeat(auto-fit,minmax(235.9px,1fr))] gap-5 w-max max-w-full">
       {products.map((product, index) => (
         <ProductCard
           refTarget={

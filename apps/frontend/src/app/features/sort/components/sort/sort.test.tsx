@@ -1,5 +1,5 @@
 import React from 'react';
-import { expect, it, describe, beforeEach } from 'vitest';
+import { expect, it, describe, beforeEach, vi } from 'vitest';
 import {
   render,
   RenderResult,
@@ -7,6 +7,14 @@ import {
   fireEvent,
 } from '@testing-library/react';
 import { Sort } from './';
+
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    replace: vi.fn(),
+  }),
+  useSearchParams: () => vi.fn(),
+  usePathname: () => '/',
+}));
 
 const SORT_TESTID = 'sort';
 
@@ -17,7 +25,7 @@ describe('Sort', () => {
   });
 
   afterEach(() => {
-    renderResult.unmount();
+    renderResult?.unmount();
   });
 
   it('should render a sort component', () => {
