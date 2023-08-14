@@ -6,7 +6,11 @@ import React from 'react';
 
 export const NavBar = () => {
   return (
-    <Container as="nav" className="h-5 mx-0 flex items-center" testId="navbar">
+    <Container
+      as="nav"
+      className="min-h-[32px] mx-0 flex items-center"
+      testId="navbar"
+    >
       <Link href="" title="volar para o início">
         <HomeIcon className="h-5" />
       </Link>

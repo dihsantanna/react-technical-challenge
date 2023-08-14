@@ -23,6 +23,9 @@ module.exports = {
           700: '#4A237D'
         },
         base: '#EEEEEE'
+      },
+      boxShadow: {
+        default: "0px 1px 4px 0px rgba(0, 0, 0, 0.10)"
       }
     },
   },

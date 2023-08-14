@@ -1,20 +1,59 @@
+import { parseFiltersUrl } from '@/features/filters/actions';
 import { api } from '@/libs/axios/api';
 import { ProductsType, ProductWithAttributes } from '@/types/product-type';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useRef } from 'react';
+
+const parseUrl = (
+  url: string,
+  filters: {
+    categories: string[];
+    colors: string[];
+    prices: string[];
+  },
+  sort = '',
+  search = '',
+) => {
+  url = parseFiltersUrl(url, filters);
+
+  return url;
+};
 
 export const useProducts = () => {
   const refElementToLoadMore = useRef<HTMLDivElement | null>(null);
+  const searchParams = useSearchParams();
+
+  const [filters] = useMemo(() => {
+    const params = new URLSearchParams(
+      searchParams as unknown as URLSearchParams,
+    );
+
+    const categories = JSON.parse(params.get('categories') ?? '[]') as string[];
+    const colors = JSON.parse(params.get('colors') ?? '[]') as string[];
+    const prices = JSON.parse(params.get('prices') ?? '[]') as string[];
+
+    return [
+      {
+        categories,
+        colors,
+        prices,
+      },
+    ];
+  }, [searchParams]);
 
   const {
     data: productsPages,
     isLoading,
     isFetchingNextPage,
     fetchNextPage,
-  } = useInfiniteQuery(['products'], {
+  } = useInfiniteQuery(['products', filters], {
     queryFn: async ({ pageParam = 1 }) => {
       const { data } = await api.get<ProductsType>(
-        `/products?pagination[page]=${pageParam}&pagination[pageSize]=16`,
+        parseUrl(
+          `/products?pagination[page]=${pageParam}&pagination[pageSize]=16`,
+          filters,
+        ),
       );
       return data;
     },

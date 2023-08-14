@@ -23,7 +23,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       id={`card-product-${productId}`}
       ref={refTarget}
       data-testid={`product-card-${productId}`}
-      className={`h-[310px] w-[235.9px] px-4 pt-2 bg-white ${className}`}
+      className={`h-[310px] w-[235.9px] px-4 pt-2 bg-white rounded-md shadow-default ${className}`}
     >
       <div className="overflow-hidden h-[200px] w-full relative mx-auto">
         <Image

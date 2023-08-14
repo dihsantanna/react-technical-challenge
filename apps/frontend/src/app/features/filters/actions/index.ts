@@ -1,1 +1,2 @@
-// Nesta pasta devem ser adicionadas as funções que farão a requisição ao backend
+export { useFilters } from "./useFilters";
+export { parseFiltersUrl } from "./parse";
