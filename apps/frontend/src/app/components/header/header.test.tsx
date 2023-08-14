@@ -1,7 +1,16 @@
 import React from 'react';
-import { expect, it, describe, beforeEach } from 'vitest';
+import { expect, it, describe, beforeEach, vi } from 'vitest';
 import { render, RenderResult, screen } from '@testing-library/react';
 import { Header } from './';
+
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    replace: vi.fn(),
+    push: vi.fn(),
+  }),
+  useSearchParams: () => vi.fn(),
+  usePathname: () => '/',
+}));
 
 const HEADER_TESTID = 'header';
 const SEARCH_TESTID = 'search-input';
@@ -13,7 +22,7 @@ describe('Header', () => {
   });
 
   afterEach(() => {
-    renderResult.unmount();
+    renderResult?.unmount();
   });
 
   it('should render header', () => {

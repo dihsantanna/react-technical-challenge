@@ -1,7 +1,16 @@
 import React from 'react';
-import { expect, it, describe, beforeEach } from 'vitest';
+import { expect, it, describe, beforeEach, vi } from 'vitest';
 import { render, RenderResult, screen } from '@testing-library/react';
 import { Search } from './';
+
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    replace: vi.fn(),
+    push: vi.fn(),
+  }),
+  useSearchParams: () => vi.fn(),
+  usePathname: () => '/',
+}));
 
 const SEARCH_TESTID = 'search-input';
 const SEARCH_PLACEHOLDER = 'O que você está procurando?';
