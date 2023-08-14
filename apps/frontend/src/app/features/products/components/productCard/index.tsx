@@ -25,7 +25,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       data-testid={`product-card-${productId}`}
       className={`h-[310px] w-[235.9px] px-4 pt-2 bg-white ${className}`}
     >
-      <div className="overflow-hidden h-[200px] w-[214.5px] relative">
+      <div className="overflow-hidden h-[200px] w-full relative mx-auto">
         <Image
           src={src}
           alt={`Imagem do produto ${title}`}
